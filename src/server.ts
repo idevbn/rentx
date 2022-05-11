@@ -1,7 +1,5 @@
 import express from "express";
-
-import { categoriesRoutes } from "./routes/categories.routes";
-import { specificationsRoutes } from "./routes/specifications.routes";
+import { router } from "routes";
 
 const app = express();
 
@@ -10,12 +8,7 @@ const PORT = process.env.PORT || 3333;
 
 app.use(express.json());
 
-app.get("/", (request, response) => {
-  return response.json({ message: "Hello World!" });
-});
-
-app.use("/categories", categoriesRoutes);
-app.use("/specifications", specificationsRoutes);
+app.use(router);
 
 app.listen(3333, () => {
   console.log(
