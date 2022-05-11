@@ -6,12 +6,6 @@ interface IRequest {
 }
 
 class CreateCategoryService {
-  // Equivalente a:
-  //
-  // private categoriesRepository: CategoriesRepository;
-  // constructor(categoriesRepository: CategoriesRepository) {
-  // this.categoriesRepository = categoriesRepository;
-  // }
   constructor(private categoriesRepository: ICategoriesRepository) {}
 
   public execute({ name, description }: IRequest): void {
