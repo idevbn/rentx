@@ -13,7 +13,7 @@ class UsersRepositoryInMemory implements IUsersRepository {
   }: ICreateUserDTO): Promise<void> {
     const user = new User();
 
-    Object.assign("user", {
+    Object.assign(user, {
       driver_license,
       email,
       name,
