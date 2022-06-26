@@ -39,16 +39,18 @@ describe("Create Car", () => {
         category_id: "category",
       });
 
-      await createCarUseCase.execute({
-        name: "Name Car 2",
-        description: "Description Car 2",
-        daily_rate: 100,
-        license_plate: "ABC-1234",
-        fine_amount: 60,
-        brand: "Brand 2",
-        category_id: "category 2",
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      expect(async () => {
+        await createCarUseCase.execute({
+          name: "Name Car 2",
+          description: "Description Car 2",
+          daily_rate: 100,
+          license_plate: "ABC-1234",
+          fine_amount: 60,
+          brand: "Brand 2",
+          category_id: "category 2",
+        });
+      }).rejects.toBeInstanceOf(AppError);
+    });
   });
 
   it("Should be able to create a car with available true by default", async () => {

@@ -4,7 +4,7 @@ import { Car } from "@modules/cars/infra/typeorm/entities/Car";
 import { ICarsRepository } from "../ICarsRepository";
 
 class CarsRepositoryInMemory implements ICarsRepository {
-  cars: Car[];
+  cars: Car[] = [];
 
   async create({
     name,
