@@ -8,8 +8,7 @@ Deve ser possível cadastrar um novo carro.
 **Regras de Negócio**
 Não deve ser possível cadastar um carro com uma placa já existente.
 O carro deve ser cadastrado, por padrão, como disponível.
-* O usuário responsável pelo cadastro deve ser um usuário administrador.
-
+O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 # Listagem de Carros
 
@@ -21,7 +20,6 @@ Deve ser possível listar todos os carros disponíveis pelo nome da carro.
 
 **Regras de Negócio**
 O usuário não precisa estar logado no sistema.
-
 
 # Cadastro de Especifição no Carro
 
@@ -35,7 +33,6 @@ Não deve ser possível cadastrar uma especificação para um carro não cadastr
 Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
 O usuário responsável pelo cadastro deve ser um usuário administrador.
 
-
 # Cadastro de Imagens do Carro
 
 **Requisitos Funcionais**
@@ -48,7 +45,6 @@ Utilizar o multer para upload dos arquivos (em ambiente de desenvolvimento).
 **Regras de Negócio**
 O usuário deve poder cadastrar mais de uma imagem para o carro.
 O usuário responsável pelo cadastro deve ser um usuário administrador.
-
 
 # Aluguel de Carro
 
