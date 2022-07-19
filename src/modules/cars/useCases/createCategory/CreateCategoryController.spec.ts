@@ -8,7 +8,7 @@ import createConnection from "@shared/infra/typeorm/";
 
 let connection: Connection;
 
-describe("Create Category Controller", async () => {
+describe("Create Category Controller", () => {
   beforeEach(async () => {
     connection = await createConnection();
 
@@ -22,7 +22,7 @@ describe("Create Category Controller", async () => {
     );
   });
 
-  it("Should be ablet o create a new category", async () => {
+  it("Should be able to create a new category", async () => {
     const responseToken = await request(app).post("/sessions").send({
       email: "admin@rentx.com.br",
       password: "admin",
