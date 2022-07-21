@@ -6,11 +6,15 @@ import { v4 as uuid } from "uuid";
 import { app } from "@shared/infra/http/app";
 import createConnection from "@shared/infra/typeorm/";
 
+jest.setTimeout(120000);
+
 let connection: Connection;
 
 describe("Create Category Controller", () => {
   beforeEach(async () => {
     connection = await createConnection();
+
+    await connection.runMigrations();
 
     const id = uuid();
     const password = await hash("admin", 8);
@@ -22,18 +26,28 @@ describe("Create Category Controller", () => {
     );
   });
 
+  afterAll(async () => {
+    await connection.dropDatabase();
+    await connection.close();
+  });
+
   it("Should be able to create a new category", async () => {
     const responseToken = await request(app).post("/sessions").send({
       email: "admin@rentx.com.br",
       password: "admin",
     });
 
-    console.log(responseToken);
+    const { token } = responseToken.body;
 
-    const response = await request(app).post("/categories").send({
-      name: "Category Supertest",
-      description: "Category Supertest",
-    });
+    const response = await request(app)
+      .post("/categories")
+      .send({
+        name: "Category Supertest",
+        description: "Category Supertest",
+      })
+      .set({
+        Authorization: `Bearer ${token}`,
+      });
 
     expect(response.status).toBe(201);
   });
