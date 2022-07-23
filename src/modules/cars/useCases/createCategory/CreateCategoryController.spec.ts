@@ -11,7 +11,7 @@ jest.setTimeout(120000);
 let connection: Connection;
 
 describe("Create Category Controller", () => {
-  beforeEach(async () => {
+  beforeAll(async () => {
     connection = await createConnection();
 
     await connection.runMigrations();
